@@ -1,0 +1,79 @@
+<html>
+    
+<head>
+	<title>RegPg</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<style>
+	body{
+		background-image: url('https://wallpaperaccess.com/full/1282794.jpg');
+		background-size: cover;
+	}
+	.card{
+		background-color: #000000d0;
+		width: 400px;
+		padding: 15px;
+		border-radius: 10px;
+		margin-left: 400px;
+		color: aliceblue;
+		padding-top: 25px;
+	}
+
+	.heading{
+		margin-top: 100px;
+		margin-left: 453px;
+		background-color: #000000d0;
+		color: antiquewhite;
+		width: 300px;
+		border-radius: 10px;
+		padding: 5px;
+		padding-left: 100px;
+		padding-right: 6px;
+		padding-top: 10px;
+		}
+
+        #btn{
+            padding: 6px;
+            margin-left: 160px;
+            border-radius: 7px;
+        }
+        
+        #btn:hover{
+            color: whitesmoke;
+        }
+
+</style>
+</head>
+<body>
+	
+	<br>
+	<div class="heading">
+	<h4>SIGN IN</h4>
+	</div>
+	<br>
+	<div class="card">
+	<form method = "POST" action = "% url 'loginpg' %">
+		{% csrf_token %}
+        {{form.username.label}}
+        {{form.username}}
+		<br><br>
+		{{form.password1.label}}
+        {{form.password1}}
+		<br><br>
+        {{form.errors}}
+		<div class = "button">
+            <input type = "submit" name = "LOGIN" value = "LOGIN" style="background-color: rgb(86, 209, 86)" id = "btn" >
+            </div>
+        <br>
+
+        {% for message in messages %}
+            <p id = "msg">{{message}}</p>
+        {% endfor %}
+
+        Don't have an account? <a href = "{% url 'regpg' %}"> Register </a>
+	</form>
+	</div>
+</body>
+</html>
+
